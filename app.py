@@ -11,9 +11,9 @@ from PIL import Image
 def get_df(seg_type): #* Returns a DataFrame of train or test set of images
     labels = []
     pixels = []
-    for image_type in list(os.listdir(f"{seg_type}/{seg_type}")):
-        for image in list(os.listdir(f"{seg_type}/{seg_type}/{image_type}")):
-            img = np.array(Image.open(f"{seg_type}/{seg_type}/{image_type}/{image}").convert('L').resize((150, 150))) 
+    for image_type in list(os.listdir(f"archive/{seg_type}/{seg_type}")):
+        for image in list(os.listdir(f"archive/{seg_type}/{seg_type}/{image_type}")):
+            img = np.array(Image.open(f"archive/{seg_type}/{seg_type}/{image_type}/{image}").convert('L').resize((150, 150))) 
             img_y = (img.shape[0])
             img_x = (img.shape[1])
             img = img.reshape(1,img_y*img_x)
