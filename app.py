@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from PIL import Image
 
 #helper functions
-def get_df(seg_type): #* Returns a dataframe of train or test set of images
+def get_df(seg_type): #* Returns a DataFrame of train or test set of images
     labels = []
     pixels = []
     for image_type in list(os.listdir(f"{seg_type}/{seg_type}")):
