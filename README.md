@@ -8,7 +8,7 @@ Pandas, Numpy, Sklearn, and Streamlit
 
 ## Data Source
 [Intel Image Classification](https://www.kaggle.com/datasets/puneet6060/intel-image-classification)
-> A dataset within Kaggle that contains over 17,000 images of buildings, forests, glaciers, mountains, bodies of water, and streets
+> A dataset from Kaggle that contains over 17,000 images of buildings, forests, glaciers, mountains, bodies of water, and streets
 
 ## File Directory
 - ### Archive Folder 
