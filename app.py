@@ -57,7 +57,7 @@ with c2:
         train_df = get_df('seg_train')
         test_df = get_df('seg_test')
         df = pd.concat([train_df,test_df])
-        # model = run_model(RandomForestClassifier(), df, 0.2)
+        model = run_model(RandomForestClassifier(), df, 0.2)
         # #results
         # image_type = get_image_type(model, uploaded_file)
         # if image_type == "buildings":
