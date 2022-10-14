@@ -29,7 +29,7 @@ def get_df(seg_type): #* Returns a DataFrame of train or test set of images
 
 def run_model(model, df, test_size): #* run and test ML Model
     X = df.drop("labels", axis=1).values
-    y = df["labels"].values
+    y = df["labels"]
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
