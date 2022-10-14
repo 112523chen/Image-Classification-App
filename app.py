@@ -38,28 +38,26 @@ def run_model(model, df, test_size): #* run and test ML Model
 
 def get_image(uploaded_file):
     st.image(Image.open(uploaded_file))
-    img_array = np.array(Image.open(uploaded_file).convert('L').resize((150, 150)))
-    img_array.reshape(1,150*150)
+    img_array = np.array(Image.open(uploaded_file).convert('L').resize((150, 150))).reshape(1,150*150)
+    print(img_array)
     return img_array
 
 def get_image_type(model, uploaded_file):
     img_array = get_image(uploaded_file)
     return model.predict(img_array)[0]
     
-
-# ML Model
-train_df = get_df('seg_train')
-test_df = get_df('seg_test')
-df = pd.concat([train_df,test_df])
-model = run_model(RandomForestClassifier(), df, 0.2)
-
-
 # app
 c1, c2, c3 = st.columns([1, 6, 1])
 with c2:
     st.title("Image Classifier")
     uploaded_file = st.file_uploader("")
     if uploaded_file is not None:
+        # ML Model
+        train_df = get_df('seg_train')
+        test_df = get_df('seg_test')
+        df = pd.concat([train_df,test_df])
+        model = run_model(RandomForestClassifier(), df, 0.2)
+        #results
         image_type = get_image_type(model, uploaded_file)
         if image_type == "buildings":
             st.header(f"The image above has {image_type}")
