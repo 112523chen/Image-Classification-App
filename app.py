@@ -34,8 +34,6 @@ def run_model(model, df, test_size): #* run and test ML Model
     print(y)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
     model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
-    accuracy = model.score(X_test, y_test)
     return model
 
 def get_image(uploaded_file):
@@ -57,6 +55,7 @@ with c2:
         train_df = get_df('seg_train')
         test_df = get_df('seg_test')
         df = pd.concat([train_df,test_df])
+        df = df.iloc[:50]
         model = run_model(RandomForestClassifier(), df, 0.2)
         # #results
         # image_type = get_image_type(model, uploaded_file)
