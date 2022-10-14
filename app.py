@@ -1,10 +1,12 @@
 import os
-import streamlit as st
+
+import numpy as np
 import pandas as pd
-import numpy as np 
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+import streamlit as st
 from PIL import Image
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+
 
 #helper functions
 def get_df(seg_type): #* Returns a DataFrame of train or test set of images
