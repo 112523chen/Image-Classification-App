@@ -37,6 +37,7 @@ def run_model(model, df, test_size): #* run and test ML Model
 def get_image(uploaded_file):
     st.image(Image.open(uploaded_file))
     img_array = np.array(Image.open(uploaded_file).convert('L').resize((150, 150)))
+    img_array.reshape(1,150*150)
     return img_array
 
 def get_image_type(model, uploaded_file):
