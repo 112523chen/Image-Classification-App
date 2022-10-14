@@ -23,7 +23,7 @@ def get_df(seg_type): #* Returns a DataFrame of train or test set of images
     pixels = np.array(pixels)
     pixels = np.reshape(pixels, (-1, 150*150))
     df = pd.DataFrame(pixels)
-    df.columns = [f"pixel{n}" for n in range(150*150)]
+    df.columns = [f"pixel_value_{n}" for n in range(150*150)]
     df['labels'] = labels
     return df
 
