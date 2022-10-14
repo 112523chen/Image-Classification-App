@@ -58,7 +58,6 @@ with c2:
         test_df = get_df('seg_test')
         df = pd.concat([train_df,test_df])
         df = df.iloc[:50]
-        st.dataframe(df)
         # model = run_model(RandomForestClassifier(), df, 0.2)
         # #results
         # image_type = get_image_type(model, uploaded_file)
