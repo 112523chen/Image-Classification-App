@@ -29,9 +29,7 @@ def get_df(seg_type): #* Returns a DataFrame of train or test set of images
 
 def run_model(model, df, test_size): #* run and test ML Model
     X = df.drop("labels", axis=1)
-    print(X)
     y = df["labels"]
-    print(y)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
     model.fit(X_train, y_train)
     return model
@@ -55,15 +53,15 @@ with c2:
         train_df = get_df('seg_train')
         test_df = get_df('seg_test')
         df = pd.concat([train_df,test_df])
-        df = df.iloc[:round(len(df)/2)]
-        st.dataframe(df)
+        print(round(len(df)/2))
+        df = df.iloc[:round(len(df)/2)] #! could change df memory size up to 200MB
         model = run_model(RandomForestClassifier(), df, 0.2)
-        # #results
-        # image_type = get_image_type(model, uploaded_file)
-        # if image_type == "buildings":
-        #     st.header(f"The image above has {image_type}")
-        # else:
-        #     st.header(f"The image above has a {image_type}")
+        #results
+        image_type = get_image_type(model, uploaded_file)
+        if image_type == "buildings":
+            st.header(f"The image above has {image_type}")
+        else:
+            st.header(f"The image above has a {image_type}")
     else:
         st.info(
                 f"""
