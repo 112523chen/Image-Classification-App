@@ -23,13 +23,15 @@ def get_df(seg_type): #* Returns a DataFrame of train or test set of images
     pixels = np.array(pixels)
     pixels = np.reshape(pixels, (-1, 150*150))
     df = pd.DataFrame(pixels)
-    df.columns = [f"pixel_value_{n}" for n in range(150*150)]
+    df.columns = [f"{n}" for n in range(150*150)]
     df['labels'] = labels
     return df
 
 def run_model(model, df, test_size): #* run and test ML Model
-    X = df.drop("labels", axis=1).values
+    X = df.drop("labels", axis=1)
+    print(X)
     y = df["labels"]
+    print(y)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
