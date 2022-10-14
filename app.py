@@ -57,13 +57,15 @@ with c2:
         train_df = get_df('seg_train')
         test_df = get_df('seg_test')
         df = pd.concat([train_df,test_df])
-        model = run_model(RandomForestClassifier(), df, 0.2)
-        #results
-        image_type = get_image_type(model, uploaded_file)
-        if image_type == "buildings":
-            st.header(f"The image above has {image_type}")
-        else:
-            st.header(f"The image above has a {image_type}")
+        df = df.iloc[:50]
+        st.dataframe(df)
+        # model = run_model(RandomForestClassifier(), df, 0.2)
+        # #results
+        # image_type = get_image_type(model, uploaded_file)
+        # if image_type == "buildings":
+        #     st.header(f"The image above has {image_type}")
+        # else:
+        #     st.header(f"The image above has a {image_type}")
     else:
         st.info(
                 f"""
