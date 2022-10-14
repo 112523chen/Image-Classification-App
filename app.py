@@ -28,8 +28,8 @@ def get_df(seg_type): #* Returns a DataFrame of train or test set of images
     return df
 
 def run_model(model, df, test_size): #* run and test ML Model
-    X = df.drop("labels", axis=1)
-    y = df["labels"]
+    X = df.drop("labels", axis=1).values
+    y = df["labels"].values
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
@@ -39,7 +39,6 @@ def run_model(model, df, test_size): #* run and test ML Model
 def get_image(uploaded_file):
     st.image(Image.open(uploaded_file))
     img_array = np.array(Image.open(uploaded_file).convert('L').resize((150, 150))).reshape(1,150*150)
-    print(img_array)
     return img_array
 
 def get_image_type(model, uploaded_file):
