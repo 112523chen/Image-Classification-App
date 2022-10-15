@@ -42,8 +42,20 @@ def get_image(uploaded_file):
 def get_image_type(model, uploaded_file):
     img_array = get_image(uploaded_file)
     return model.predict(img_array)[0]
-    
+
+
 # app
+st.set_page_config( # head tag
+    page_title="Image Classification Demo", 
+    page_icon="random",
+    menu_items={
+        'Get Help': 'https://github.com/112523chen/Image-Classification-App',
+        'Report a bug': "https://github.com/112523chen/Image-Classification-App/issues/new",
+        'About': """
+                ***Streamlit app*** that predicts what's inside an image using machine learning supervised learning
+                """ 
+    })
+
 c1, c2, c3 = st.columns([1, 6, 1])
 with c2:
     st.title("Image Classifier")
