@@ -1,4 +1,5 @@
 import os
+import pickle
 
 import numpy as np
 import pandas as pd
@@ -67,7 +68,9 @@ with c2:
         df = pd.concat([train_df,test_df])
         print(round(len(df)/2))
         df = df.iloc[:round(len(df)/2)] #! could change df memory size up to 200MB
-        model = run_model(RandomForestClassifier(), df, 0.2)
+        # model = run_model(RandomForestClassifier(), df, 0.2) #* Function to Model
+        # pickle.dump(model, open('RandomForest_0.2.pkl', 'wb')) #* Save model as pickle
+        model = pickle.load(open('RandomForest_0.2.pkl','rb'))
         #results
         image_type = get_image_type(model, uploaded_file)
         if image_type == "buildings":
