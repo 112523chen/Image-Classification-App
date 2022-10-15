@@ -26,3 +26,8 @@ Pandas, Numpy, Sklearn, and Streamlit
   - Toggle to use different machine learning model
   - Toggle to change the train test split for the model
   - Toggle to add additional following
+
+## How to Run Locally
+- Download this repo and all packages mentioned in `requirements.txt`
+- Go to terminal/command line and run the following command:
+  `streamlit run app.py`
