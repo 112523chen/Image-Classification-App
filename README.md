@@ -1,5 +1,7 @@
 # Image-Classification-App
 
+![Project Demo](demo.png)
+
 ## Project Description
 Created a web app that conatins a machine learning model(s) that predicts what inside an image based on a few presets 
 
