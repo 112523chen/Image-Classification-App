@@ -38,7 +38,7 @@ with c2:
     uploaded_file = st.file_uploader("")
     if uploaded_file is not None:
         # ML Model
-        model = pickle.load(open('RandomForest_0.2.pkl','rb'))
+        model = pickle.load(open('RandomForest.pkl','rb'))
         #results
         image_type = get_image_type(model, uploaded_file)
         if image_type == "buildings":
