@@ -1,2 +1,4 @@
 .DS_Store
-code.py
+sample.py
+__pycache__/code.cpython-310.pyc
+research.ipynb
