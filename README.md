@@ -6,7 +6,7 @@
 Created a web app that conatins a machine learning model(s) that predicts what inside an image based on a few presets 
 
 ## Python Libaries Used
-Pandas, Numpy, Sklearn, and Streamlit
+[Pandas](https://pandas.pydata.org), [Numpy](https://numpy.org), [Sklearn](https://scikit-learn.org/stable/), and [Streamlit](https://streamlit.io)
 
 ## Data Source
 [Intel Image Classification](https://www.kaggle.com/datasets/puneet6060/intel-image-classification)
